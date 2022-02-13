@@ -1,11 +1,11 @@
-function getInputValue(){
-  const depositInput = document.getElementById('deposit-input');
-  const depositAmountText = depositInput.value;
-  const depositAmount = parseFloat(depositAmountText);
+function getInputValue(inputId){
+  const inputField = document.getElementById(inputId);
+  const inputAmountText = inputField.value;
+  const amountValue = parseFloat(inputAmountText);
   // clear input fileld
-depositInput.value='';
+inputField.value='';
 
-  return depositAmount;
+  return amountValue;
 
 }
 
@@ -16,7 +16,7 @@ document.getElementById('deposit-button').addEventListener('click' , function(){
   // const depositInput = document.getElementById('deposit-input');
   // const depositAmountText = depositInput.value;
   // const depositAmount = parseFloat(depositAmountText);
-const depositAmount = getInputValue();
+const depositAmount = getInputValue('deposit-input');
   // get current Deposit
   const depositTotal =document.getElementById('deposit-total');
   const depositTotalText = depositTotal.innerText;
@@ -44,9 +44,10 @@ const depositAmount = getInputValue();
 document.getElementById('withdrow-button').addEventListener('click' , function(){
 
   // WIthdraw input 
-  const withdrawOutput = document.getElementById('withdrow-input');
-  const withdrawAmountText = withdrawOutput.value;
-  const withdrawAmount = parseFloat(withdrawAmountText);
+  // const withdrawOutput = document.getElementById('withdrow-input');
+  // const withdrawAmountText = withdrawOutput.value;
+  // const withdrawAmount = parseFloat(withdrawAmountText);
+  const withdrawAmount = getInputValue('withdrow-input')
 //  Total Withdraw
   const withdrawTotal = document.getElementById('withdrow-total');
   const withdrawTotalText = withdrawTotal.innerText;
@@ -54,7 +55,7 @@ document.getElementById('withdrow-button').addEventListener('click' , function()
   withdrawTotal.innerText = withdrawAmount + withdrawTotalAmount ;
 
   // clear input fileld
-  withdrawOutput.value='';
+  // withdrawOutput.value='';
 
   // After Withdraw Balance Update
    const balanceTotal = document.getElementById('balance-total');
